@@ -1,0 +1,14 @@
+.list {
+  padding: 0;
+  margin: 0;
+  padding-inline-start: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.noData {
+  margin: 0 auto;
+  color: black;
+  opacity: 0.5;
+}

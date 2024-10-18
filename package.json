@@ -1,0 +1,32 @@
+{
+  "name": "todo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ant-design/cssinjs": "^1.1.1",
+    "@ant-design/icons": "^5.5.1",
+    "antd": "^5.21.3",
+    "mobx": "^6.13.3",
+    "mobx-react-lite": "^4.0.7",
+    "next": "14.2.15",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.80.1",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/uuid": "^10.0.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.15",
+    "typescript": "^5"
+  }
+}
