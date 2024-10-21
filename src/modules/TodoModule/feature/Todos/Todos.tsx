@@ -14,10 +14,8 @@ export const Todos = observer(() => {
     inputValue,
     handleInputChange,
     handleAddButtonClick,
-    inputStatus,
-    inputPlaseHolder,
     isDisableButton,
-    buttonsVariant,
+    filterButtonsVariant,
     removeTodo,
     changeTodoStatus,
   } = useLogic(store);
@@ -25,12 +23,11 @@ export const Todos = observer(() => {
     <Flex vertical gap="middle">
       <Flex gap="middle">
         <Input
-          placeholder={inputPlaseHolder}
+          placeholder="Новая задача"
           maxLength={30}
           value={inputValue}
           onChange={handleInputChange}
           allowClear
-          status={inputStatus}
         />
         <Button
           type="primary"
@@ -44,7 +41,7 @@ export const Todos = observer(() => {
         <Button
           type="text"
           onClick={() => setTodoFilter(undefined)}
-          variant={buttonsVariant.all}
+          variant={filterButtonsVariant.all}
           color="primary"
           size="small"
         >
@@ -52,7 +49,7 @@ export const Todos = observer(() => {
         </Button>
         <Button
           type="text"
-          variant={buttonsVariant.completed}
+          variant={filterButtonsVariant.completed}
           onClick={() => setTodoFilter(TodoStatus.Completed)}
           color="primary"
           size="small"
@@ -61,7 +58,7 @@ export const Todos = observer(() => {
         </Button>
         <Button
           type="text"
-          variant={buttonsVariant.active}
+          variant={filterButtonsVariant.active}
           onClick={() => setTodoFilter(TodoStatus.Active)}
           color="primary"
           size="small"
