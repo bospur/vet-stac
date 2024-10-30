@@ -6,9 +6,6 @@ import { NavMenu } from "@/modules/SidebarModule";
 const { Sider, Content } = Layout;
 
 const contentStyle: React.CSSProperties = {
-  textAlign: "center",
-  minHeight: 120,
-  lineHeight: "120px",
   color: "#000",
 };
 
