@@ -1,8 +1,29 @@
 import { observer } from "mobx-react-lite";
 import { ReactNode } from "react";
-import styles from "./styles.module.scss";
 
-import { Layout } from "@/shared";
+import { Flex, Layout } from "@/shared";
+import { NavMenu } from "@/modules/SidebarModule";
+const { Sider, Content } = Layout;
+
+const contentStyle: React.CSSProperties = {
+  textAlign: "center",
+  minHeight: 120,
+  lineHeight: "120px",
+  color: "#000",
+};
+
+const siderStyle: React.CSSProperties = {
+  textAlign: "center",
+  lineHeight: "120px",
+  color: "#fff",
+  backgroundColor: "#090979",
+};
+
+const layoutStyle = {
+  overflow: "hidden",
+  width: "100vw",
+  height: "100vh",
+};
 
 type Props = {
   children: ReactNode;
@@ -10,8 +31,15 @@ type Props = {
 
 export const AppLayout = observer(({ children }: Props) => {
   return (
-    <Layout className={styles.layout}>
-      <main>{children}</main>
-    </Layout>
+    <Flex wrap>
+      <Layout style={layoutStyle}>
+        <Sider width="10%" style={siderStyle}>
+          <NavMenu />
+        </Sider>
+        <Layout>
+          <Content style={contentStyle}>{children}</Content>
+        </Layout>
+      </Layout>
+    </Flex>
   );
 });
