@@ -23,5 +23,9 @@ export const theme: ThemeConfig = {
     Table: {
       headerColor: "000000",
     },
+    Form: {
+      colorText: "000000",
+      labelColor: "000000",
+    },
   },
 };
