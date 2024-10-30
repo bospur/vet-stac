@@ -15,4 +15,8 @@ export const APP_ROUTES = {
     path: "/stacionar/archive",
     getRoutePath: () => "/stacionar/archive",
   },
+  petInfo: {
+    path: "/stacionar/pets/id",
+    getRoutePath: (id: string) => `/stacionar/pets/${id}`,
+  },
 };

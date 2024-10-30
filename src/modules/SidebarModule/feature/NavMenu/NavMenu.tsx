@@ -13,7 +13,12 @@ export const NavMenu = () => {
       <Title level={5} onClick={returnHomePage} style={{ cursor: "pointer" }}>
         Ветпрактика
       </Title>
-      <Menu mode="inline" items={namMenuItems} onClick={handleMenuClick} />
+      <Menu
+        mode="inline"
+        items={namMenuItems}
+        onClick={handleMenuClick}
+        selectedKeys={[router.pathname]}
+      />
     </Flex>
   );
 };

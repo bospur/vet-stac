@@ -1,23 +1,27 @@
+// TODO создать словарь переменных для темы
 import type { ThemeConfig } from "antd";
 
 export const theme: ThemeConfig = {
   token: {
     fontSize: 16,
-    colorPrimary: "#52c41a",
+    colorPrimary: "#40ced2",
     borderRadius: 6,
     colorTextHeading: "#fff",
   },
   components: {
     Menu: {
       fontSize: 12,
-      colorBgBase: "#090979",
-      colorBgContainer: "#090979",
+      colorBgBase: "#40ced2",
+      colorBgContainer: "#40ced2",
       colorText: "#fff",
       colorTextDescription: "#fff",
-      itemHoverBg: "rgba(0,212,255, 0.3)",
-      itemSelectedBg: "rgba(0,212,255, 0.5)",
+      itemHoverBg: "#748f92",
+      itemSelectedBg: "#004b4f",
       itemSelectedColor: "#fff",
       groupTitleFontSize: 14,
+    },
+    Table: {
+      headerColor: "000000",
     },
   },
 };
