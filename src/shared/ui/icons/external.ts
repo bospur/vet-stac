@@ -1,1 +1,1 @@
-export { DeleteOutlined } from "@ant-design/icons";
+export { DeleteOutlined, EyeOutlined } from "@ant-design/icons";
