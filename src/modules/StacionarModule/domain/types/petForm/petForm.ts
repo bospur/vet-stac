@@ -13,6 +13,11 @@ export namespace PetForm {
     startDate: Date;
     age: number;
     id: string; // number?
+    weightStart: number;
+    weightEnd: number;
+    description: string;
+    color: string;
+    anamnesis: string;
   };
 
   export type ManipulationCalendar = {

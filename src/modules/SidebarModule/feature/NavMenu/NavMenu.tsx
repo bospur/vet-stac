@@ -1,3 +1,4 @@
+// TODO Доработать сохрарнение выделенного ключа в меню при динамическом роуте
 import { APP_ROUTES, Flex, Menu, Typography, useRouter } from "@/shared";
 import { namMenuItems } from "../../domain";
 
