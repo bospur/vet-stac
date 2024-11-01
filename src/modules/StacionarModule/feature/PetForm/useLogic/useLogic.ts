@@ -1,13 +1,19 @@
 import { DataType, FAKE_PETS_DATA } from "../../../domain";
 import { useRouter } from "@/shared";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { getTotalServices } from "./services";
-import { Dict } from "./parseBDStringData";
+import { Dict, Service } from "./parseBDStringData";
+
+type DayServices = Service & {
+  count: number;
+  total?: number;
+};
 
 export const useLogic = () => {
   const [totalServices, setTotalServices] = useState<Dict>();
   const [filterValue, setFilterValue] = useState("");
+  const [dayServices, setDayServices] = useState<DayServices[]>([]);
   const router = useRouter();
 
   const petData = useMemo(() => {
@@ -38,11 +44,35 @@ export const useLogic = () => {
       .catch(() => setTotalServices(undefined));
   }, []);
 
+  const handleAddService = useCallback(
+    (el: Service) => {
+      const isSome = dayServices.some((service) => service.id === el.id);
+
+      if (!isSome) {
+        setDayServices([...dayServices, { ...el, count: 1 }]);
+      } else {
+        const newDayServices = dayServices.map((service) => {
+          if (service.id === el.id) {
+            service.count++;
+          }
+
+          return service;
+        });
+
+        setDayServices(newDayServices);
+      }
+    },
+    [dayServices]
+  );
+
   return {
     mainInfoData: petData,
     router,
     lightServices,
     filterValue,
     setFilterValue,
+    dayServices,
+    setDayServices,
+    handleAddService,
   };
 };

@@ -8,6 +8,7 @@ const { Sider, Content } = Layout;
 const contentStyle: React.CSSProperties = {
   color: "#000",
   background: "#fff",
+  // overflow: "hidden",
 };
 
 const siderStyle: React.CSSProperties = {

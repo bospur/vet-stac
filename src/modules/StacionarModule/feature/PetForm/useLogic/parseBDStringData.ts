@@ -10,13 +10,22 @@ export type Dict = {
   premium: Service[];
 };
 
-export const parseBDStringData = (data: string) => {
-  const parsingDataDict: Dict = {
-    light: [],
-    medium: [],
-    premium: [],
-  };
-  const dataArray = data
+const filteredServices = (el: Service, dict: Dict) => {
+  if (el.price <= 100) {
+    dict.light.push(el);
+    return;
+  }
+
+  if (el.price <= 1000) {
+    dict.medium.push(el);
+    return;
+  }
+
+  dict.premium.push(el);
+};
+
+const parsingData = (data: string) =>
+  data
     .split("`")
     .map((el) => {
       const elements = el.split("~");
@@ -29,21 +38,15 @@ export const parseBDStringData = (data: string) => {
     })
     .filter((el) => Boolean(el.price));
 
-  dataArray.forEach((el) => {
-    if (el.price <= 100) {
-      parsingDataDict.light.push(el);
-      return;
-    }
+export const parseBDStringData = (data: string) => {
+  const parsingDataDict: Dict = {
+    light: [],
+    medium: [],
+    premium: [],
+  };
+  const dataArray = parsingData(data);
 
-    if (el.price <= 1000) {
-      parsingDataDict.medium.push(el);
-      return;
-    }
-
-    parsingDataDict.premium.push(el);
-  });
-
-  console.log(parsingDataDict);
+  dataArray.forEach((el) => filteredServices(el, parsingDataDict));
 
   return parsingDataDict;
 };
