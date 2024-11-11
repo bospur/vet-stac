@@ -1,5 +1,21 @@
 import { TagType } from "../enums";
 
+export type Service = {
+  id: string;
+  name: string;
+  price: number;
+};
+
+export type Dict = {
+  light: Service[];
+  medium: Service[];
+  premium: Service[];
+};
+
+export type DayServices = Service & {
+  count: number;
+  total?: number;
+};
 export namespace PetForm {
   export type PetFormFields = {
     mainInfo: MainPetInfo;
@@ -18,6 +34,7 @@ export namespace PetForm {
     description: string;
     color: string;
     anamnesis: string;
+    type: string;
   };
 
   export type ManipulationCalendar = {

@@ -1,14 +1,4 @@
-export type Service = {
-  id: string;
-  name: string;
-  price: number;
-};
-
-export type Dict = {
-  light: Service[];
-  medium: Service[];
-  premium: Service[];
-};
+import { Dict, Service } from "../../../domain";
 
 const filteredServices = (el: Service, dict: Dict) => {
   if (el.price <= 100) {
