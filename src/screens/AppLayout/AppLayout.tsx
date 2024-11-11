@@ -8,7 +8,8 @@ const { Sider, Content } = Layout;
 const contentStyle: React.CSSProperties = {
   color: "#000",
   background: "#fff",
-  // overflow: "hidden",
+  scrollbarWidth: "thin",
+  overflow: "auto",
 };
 
 const siderStyle: React.CSSProperties = {

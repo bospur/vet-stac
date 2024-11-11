@@ -27,5 +27,8 @@ export const theme: ThemeConfig = {
       colorText: "000000",
       labelColor: "000000",
     },
+    Collapse: {
+      colorTextHeading: "000000",
+    },
   },
 };

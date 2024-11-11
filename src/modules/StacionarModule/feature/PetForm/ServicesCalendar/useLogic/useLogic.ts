@@ -1,34 +1,13 @@
-import {
-  DataType,
-  DayServices,
-  Dict,
-  FAKE_PETS_DATA,
-  Service,
-} from "../../../domain";
+import { DayServices, Dict, Service } from "../../../../domain";
 import { useRouter } from "@/shared";
 import { ChangeEvent, useCallback, useEffect, useMemo, useState } from "react";
-
-import { getTotalServices } from "./services";
+import { getTotalServices } from "../../useLogic/services";
 
 export const useLogic = () => {
   const [totalServices, setTotalServices] = useState<Dict>();
   const [filterValue, setFilterValue] = useState("");
   const [dayServices, setDayServices] = useState<DayServices[]>([]);
   const router = useRouter();
-
-  const petData = useMemo(() => {
-    const id = router.query?.id;
-    const pet = FAKE_PETS_DATA.find((pet) => pet.id === id);
-
-    if (pet) {
-      return Object.keys(pet).map((key) => {
-        return {
-          name: key,
-          value: pet[key as keyof DataType],
-        };
-      });
-    }
-  }, [router.query.id]);
 
   const lightServices = useMemo(() => {
     return totalServices?.light.filter(
@@ -71,7 +50,6 @@ export const useLogic = () => {
   );
 
   return {
-    mainInfoData: petData,
     router,
     lightServices,
     filterValue,
